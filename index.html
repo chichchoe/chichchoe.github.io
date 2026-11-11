@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nguyễn Văn Tiến — Senior Mobile Developer</title>
+<meta name="description" content="Portfolio of Nguyễn Văn Tiến — Senior Mobile Developer (React Native, Flutter) with 6+ years building cross-platform apps.">
+<meta property="og:title" content="Nguyễn Văn Tiến — Senior Mobile Developer">
+<meta property="og:description" content="React Native · Flutter · NestJS — 6+ years building cross-platform apps for social commerce, ride-hailing & retail.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3EE; --paper:#FFFFFF; --ink:#15171C; --muted:#5E636E; --line:#E4E0D7;
+    --accent:#1F5EFF; --accent-soft:#E6EDFF; --mint:#0E9F6E;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Be Vietnam Pro",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(245,243,238,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;text-decoration:none;letter-spacing:-.02em}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:22px;align-items:center;font-size:14px}
+  .nav-links a{text-decoration:none;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--paper)}
+  .lang button{border:0;background:none;padding:5px 11px;font:600 12px "Be Vietnam Pro";cursor:pointer;color:var(--muted)}
+  .lang button.on{background:var(--ink);color:#fff}
+
+  /* hero */
+  .hero{padding:80px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end}
+  .status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;background:var(--paper);border:1px solid var(--line);padding:6px 12px;border-radius:999px;margin-bottom:22px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(14,159,110,.15)}
+  h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lead{font-size:18px;color:var(--muted);margin-top:22px;max-width:580px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid var(--line);background:var(--paper)}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn:hover{transform:translateY(-1px)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .stat b{display:block;font-size:34px;letter-spacing:-.03em;line-height:1.1}
+  .stat span{font-size:13px;color:var(--muted)}
+  .stat.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .stat.dark span{color:#B9BDC7}
+
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px;border-top:1px solid var(--line);padding-top:22px}
+  h2{font-size:30px;letter-spacing:-.025em;font-weight:800}
+
+  /* featured projects */
+  .feature{display:grid;grid-template-columns:1fr 1.25fr;gap:32px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:32px;margin-bottom:20px;overflow:hidden}
+  .app-head{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+  .app-head img{width:56px;height:56px;border-radius:14px;border:1px solid var(--line)}
+  .app-head h3{font-size:22px;letter-spacing:-.02em;line-height:1.2}
+  .app-head p{font-size:13px;color:var(--muted)}
+  .tag{display:inline-block;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);margin:0 6px 6px 0}
+  .tag.gray{background:#F0EEE8;color:var(--ink)}
+  .feature ul{list-style:none;margin:14px 0 18px}
+  .feature li{position:relative;padding-left:18px;margin-bottom:8px;font-size:15px}
+  .feature li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+  .metric{display:flex;gap:22px;margin:4px 0 18px}
+  .metric b{font-size:24px;letter-spacing:-.02em;display:block;line-height:1.1}
+  .metric span{font-size:12px;color:var(--muted)}
+  .shots{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;align-items:flex-start}
+  .shots img{height:380px;width:auto;border-radius:16px;border:1px solid var(--line);scroll-snap-align:start;flex:none;background:#eee}
+  .store{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .card h3{font-size:18px;letter-spacing:-.01em;margin:10px 0 6px}
+  .card p{font-size:14px;color:var(--muted)}
+  .badge{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff}
+
+  /* experience */
+  .xp{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .xp:last-child{border-bottom:0}
+  .xp .when{font-size:14px;color:var(--muted);font-weight:500}
+  .xp h3{font-size:18px;letter-spacing:-.01em}
+  .xp .co{font-size:14px;color:var(--muted);margin-bottom:8px}
+  .xp p{font-size:15px}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .skills .card h4{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:12px}
+  .chips span{display:inline-block;font-size:13px;font-weight:500;padding:5px 10px;border:1px solid var(--line);border-radius:8px;margin:0 6px 6px 0;background:var(--bg)}
+
+  footer{background:var(--ink);color:#fff;margin-top:40px;padding:64px 0 40px}
+  footer h2{font-size:clamp(30px,4.5vw,48px);line-height:1.1}
+  footer .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  footer .btn{background:transparent;color:#fff;border-color:#3A3E48}
+  footer .btn.primary{background:#fff;color:var(--ink);border-color:#fff}
+  footer small{display:block;margin-top:48px;color:#8C919C;font-size:13px}
+
+  [data-en]{display:none}
+  body.en [data-vi]{display:none}
+  body.en [data-en]{display:revert}
+
+  @media (max-width:860px){
+    .hero-grid,.feature{grid-template-columns:1fr}
+    .grid3{grid-template-columns:1fr}
+    .skills{grid-template-columns:1fr 1fr}
+    .xp{grid-template-columns:1fr;gap:6px}
+    .nav-links a{display:none}
+    .shots img{height:320px}
+    .feature{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Tien<span>.</span>dev</a>
+    <div class="nav-links">
+      <a href="#projects"><span data-vi>Dự án</span><span data-en>Projects</span></a>
+      <a href="#experience"><span data-vi>Kinh nghiệm</span><span data-en>Experience</span></a>
+      <a href="#skills"><span data-vi>Kỹ năng</span><span data-en>Skills</span></a>
+      <a href="#contact"><span data-vi>Liên hệ</span><span data-en>Contact</span></a>
+      <div class="lang"><button id="vi" class="on">VI</button><button id="en">EN</button></div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status"><span class="dot"></span><span data-vi>Đang tìm cơ hội Senior Mobile — Hà Nội / Remote</span><span data-en>Open to Senior Mobile roles — Hanoi / Remote</span></div>
+      <h1>Nguyễn Văn Tiến<br><em>Senior Mobile Developer</em></h1>
+      <p class="lead" data-vi>Hơn 6 năm xây dựng và phát hành ứng dụng đa nền tảng bằng React Native và Flutter — từ giao diện mượt mà đến API NestJS phía sau — cho mạng xã hội thương mại điện tử, đặt xe, bán lẻ/ERP và giao thông.</p>
+      <p class="lead" data-en>6+ years building and shipping cross-platform apps with React Native and Flutter — from smooth, polished UI to the NestJS APIs behind it — for social commerce, ride-hailing, retail ERP and transport.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:aetq13@gmail.com">aetq13@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/tiennguyen-dev" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/chichchoe" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://www.topcv.vn/xem-cv/AgVYVQMLWgRSAQdRAQYGVwYDAVVTAgBRA1ZWAAd2d2" target="_blank" rel="noopener"><span data-vi>Xem CV ↗</span><span data-en>View CV ↗</span></a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat dark"><b>6+</b><span data-vi>năm làm mobile</span><span data-en>years in mobile</span></div>
+      <div class="stat"><b>100K+</b><span data-vi>lượt tải Findnear trên Google Play</span><span data-en>Findnear downloads on Google Play</span></div>
+      <div class="stat"><b>5</b><span data-vi>ứng dụng thương mại</span><span data-en>commercial apps</span></div>
+      <div class="stat"><b>RN · Flutter</b><span data-vi>+ NestJS / ExpressJS</span><span data-en>+ NestJS / ExpressJS</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-vi>Dự án tiêu biểu</span><span data-en>Selected work</span></h2><span class="mono">01</span></div>
+
+    <article class="feature">
+      <div>
+        <div class="app-head">
+          <img src="https://play-lh.googleusercontent.com/5dzKEFpt-9PX_-f8cLJdQUyB21UrqEnbkat_SlO7CuMn7Jn_vy0g5U4yxJ2LASbGIo3wL5KVxyjA_k26GM2R=s128" alt="Findnear icon">
+          <div><h3>Findnear</h3><p>ADA Việt Nam · 2023 – 2026 · Mobile Developer</p></div>
+        </div>
+        <p data-vi>Siêu ứng dụng mạng xã hội tích hợp thương mại điện tử, livestream bán hàng, đặt xe và chat/video call.</p>
+        <p data-en>Social networking super-app with e-commerce, livestream selling, ride-hailing and chat/video calls.</p>
+        <div class="metric" style="margin-top:16px">
+          <div><b>100K+</b><span data-vi>lượt tải</span><span data-en>downloads</span></div>
+          <div><b>1.2K+</b><span data-vi>đánh giá</span><span data-en>reviews</span></div>
+          <div><b>iOS + Android</b><span data-vi>phát hành</span><span data-en>shipped</span></div>
+        </div>
+        <ul data-vi>
+          <li>Phụ trách kiến trúc app, quản lý state; review code, hướng dẫn junior.</li>
+          <li>Thiết lập CI/CD, phát hành lên App Store &amp; Google Play.</li>
+          <li>Push notification, deep link, native module; viết và tích hợp API NestJS.</li>
+        </ul>
+        <ul data-en>
+          <li>Owned app architecture and state management; code reviews and mentoring.</li>
+          <li>Set up CI/CD and shipped releases to the App Store &amp; Google Play.</li>
+          <li>Push notifications, deep links, native modules; built NestJS APIs.</li>
+        </ul>
+        <div><span class="tag">React Native</span><span class="tag">NestJS</span><span class="tag">Firebase</span></div>
+        <p style="margin-top:14px"><a class="store" href="https://play.google.com/store/apps/details?id=vn.tada.findnear" target="_blank" rel="noopener">Google Play ↗</a> &nbsp; <a class="store" href="https://apps.apple.com/vn/app/findnear/id1572311861" target="_blank" rel="noopener">App Store ↗</a></p>
+      </div>
+      <div class="shots">
+        <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/af/d6/18afd6ab-d519-4c42-a1cb-d5d2cdc63071/6.9-1.jpg/392x848bb.jpg" alt="Findnear screenshot">
+        <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6e/21/a0/6e21a030-4eb9-470f-c6a0-0ac971b42947/6.9.jpg/392x848bb.jpg" alt="Findnear screenshot">
+        <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e7/49/36/e74936d8-07f5-7bf1-c709-208c78e15eb1/6.9-2.jpg/392x848bb.jpg" alt="Findnear screenshot">
+        <img loading="lazy" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7f/f4/d3/7ff4d38a-6d0a-d9bf-d625-1e0fe1ccaef4/6.9-3.jpg/392x848bb.jpg" alt="Findnear screenshot">
+      </div>
+    </article>
+
+    <article class="feature">
+      <div>
+        <div class="app-head">
+          <img src="https://play-lh.googleusercontent.com/tRI-iStqHQ9FYb6uKZSjqiePSSUGQE_2l7NnXEOgNkGT11p2aVgD5P9P7hRJyNamFJVte1bRIm68_pVuBPOROw=s128" alt="GTHN icon">
+          <div><h3>GTHN — Giao thông Hà Nội</h3><p>IOTLink · 2026 – <span data-vi>nay</span><span data-en>present</span> · Flutter Developer</p></div>
+        </div>
+        <p data-vi>Ứng dụng Flutter tích hợp dữ liệu giao thông đường bộ, đường thủy và đường sắt của Hà Nội trên một nền tảng.</p>
+        <p data-en>Flutter app bringing Hanoi's road, waterway and rail transport data into one platform.</p>
+        <ul data-vi>
+          <li>Bản đồ mạng lưới giao thông đa phương thức, cập nhật tuyến và sự cố theo thời gian thực.</li>
+          <li>Cảnh báo giao thông theo vị trí; tìm tuyến, điểm dừng, trạng thái dịch vụ.</li>
+          <li>Phụ trách kiến trúc, quản lý state, CI/CD và phát hành.</li>
+        </ul>
+        <ul data-en>
+          <li>Multimodal network map with real-time route and incident updates.</li>
+          <li>Location-based traffic alerts; search for routes, stops and service status.</li>
+          <li>Own architecture, state management, CI/CD and releases.</li>
+        </ul>
+        <div><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Maps</span></div>
+        <p style="margin-top:14px"><a class="store" href="https://play.google.com/store/apps/details?id=com.qlht.qlht" target="_blank" rel="noopener">Google Play ↗</a></p>
+      </div>
+      <div class="shots">
+        <img loading="lazy" src="https://play-lh.googleusercontent.com/9x2EgXMirJevO3_jHhbcGZx15OWO9GWrQcWYnOEC39aDhFX7QpnrS0rAy8ebstH7aACi1htCmdI3W5uOtZ9qYw=h760" alt="GTHN screenshot">
+        <img loading="lazy" src="https://play-lh.googleusercontent.com/pYruey8Otk8-xhaPZctZCU3l1yduk4lxuOMMMSN_f1oB1RFV981VLndaIN3qliGN_VsLzFV8Xx5mnr7Irf92zA=h760" alt="GTHN screenshot">
+        <img loading="lazy" src="https://play-lh.googleusercontent.com/2PE2oCRRd3tS1xo7PxejpdgKt300mXbE9XlDqH-J5TrTzO1S83v0rHf8iLBjts1dKTnBR_xHqPgI6PJlK0WUFA=h760" alt="GTHN screenshot">
+        <img loading="lazy" src="https://play-lh.googleusercontent.com/eCtQR2u3G_BRBOCn97FXdnNVNPBpDo0X5gL1rIlw8sd852FFXlgDrHuI6mf3MCjP6SIiz1DSm8OkyJe5ZHzc=h760" alt="GTHN screenshot">
+      </div>
+    </article>
+
+    <div class="grid3">
+      <div class="card">
+        <div class="badge" style="background:#C2185B">Co</div>
+        <h3>Cocolux</h3>
+        <p data-vi>App mua sắm mỹ phẩm kèm module ERP quản lý cửa hàng: giỏ hàng, quản lý cửa hàng, tối ưu tốc độ tải.</p>
+        <p data-en>Cosmetics shopping app with ERP store-management modules: cart, store management, load-time optimisation.</p>
+        <p style="margin-top:12px"><span class="tag gray">CSELL Global · 2019–2022</span></p>
+      </div>
+      <div class="card">
+        <div class="badge" style="background:#6D4C41">Di</div>
+        <h3>Dingtea</h3>
+        <p data-vi>App đặt đồ uống và quản lý bán hàng ERP: toàn bộ luồng đặt hàng, chọn món, theo dõi đơn.</p>
+        <p data-en>Drink ordering and ERP sales app: full ordering, menu selection and order-tracking flows.</p>
+        <p style="margin-top:12px"><span class="tag gray">CSELL Global · 2020–2022</span></p>
+      </div>
+      <div class="card">
+        <div class="badge" style="background:#F57C00">Bi</div>
+        <h3>Bibabo 20</h3>
+        <p data-vi>Cộng đồng chăm sóc sức khỏe, làm đẹp, nuôi dạy con (1 triệu+ thành viên) với khóa học trong app.</p>
+        <p data-en>Health, beauty and parenting community (1M+ members) with in-app courses.</p>
+        <p style="margin-top:12px"><span class="tag gray">Bibabo · 2022–2023</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-vi>Kinh nghiệm</span><span data-en>Experience</span></h2><span class="mono">02</span></div>
+    <div class="card" style="padding:8px 28px">
+      <div class="xp"><div class="when">04/2026 – <span data-vi>nay</span><span data-en>now</span></div><div><h3>Flutter Developer</h3><div class="co">Công ty TNHH IOTLink · Freelance</div><p data-vi>Xây dựng app GTHN (Giao thông Hà Nội) bằng Flutter.</p><p data-en>Building the GTHN (Hanoi Traffic) app with Flutter.</p></div></div>
+      <div class="xp"><div class="when">08/2023 – 03/2026</div><div><h3>Mobile Developer</h3><div class="co">ADA Việt Nam</div><p data-vi>Findnear: kiến trúc app, review code, mentoring, CI/CD, phát hành store, API NestJS.</p><p data-en>Findnear: app architecture, code review, mentoring, CI/CD, store releases, NestJS APIs.</p></div></div>
+      <div class="xp"><div class="when">05/2022 – 03/2023</div><div><h3>Mobile Developer</h3><div class="co">Bibabo</div><p data-vi>Bibabo 20: giao diện mua và xem khóa học, tích hợp API, phát hành store.</p><p data-en>Bibabo 20: course purchase and viewing flows, API integration, store releases.</p></div></div>
+      <div class="xp"><div class="when">08/2019 – 04/2022</div><div><h3>Mobile Developer</h3><div class="co">CSELL Global</div><p data-vi>Cocolux &amp; Dingtea: module giỏ hàng, quản lý cửa hàng, Firebase realtime, API ExpressJS.</p><p data-en>Cocolux &amp; Dingtea: cart and store-management modules, Firebase realtime, ExpressJS APIs.</p></div></div>
+      <div class="xp"><div class="when">10/2018 – 05/2019</div><div><h3><span data-vi>Lập trình viên thực tập</span><span data-en>Software Developer Intern</span></h3><div class="co">WorkSoftPro</div><p data-vi>Giao diện responsive với HTML, CSS, JavaScript, Bootstrap.</p><p data-en>Responsive interfaces with HTML, CSS, JavaScript, Bootstrap.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2><span data-vi>Kỹ năng</span><span data-en>Skills</span></h2><span class="mono">03</span></div>
+    <div class="skills">
+      <div class="card"><h4>Mobile</h4><div class="chips"><span>React Native</span><span>Flutter</span><span>Dart</span><span>Push notification</span><span>Deep link</span><span>Native module</span></div></div>
+      <div class="card"><h4>Back-end</h4><div class="chips"><span>Node.js</span><span>NestJS</span><span>ExpressJS</span><span>REST API</span><span>Firebase</span></div></div>
+      <div class="card"><h4><span data-vi>Web &amp; Dữ liệu</span><span data-en>Web &amp; Data</span></h4><div class="chips"><span>TypeScript</span><span>ReactJS</span><span>Next.js</span><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span></div></div>
+      <div class="card"><h4><span data-vi>Quy trình</span><span data-en>Workflow</span></h4><div class="chips"><span>Git</span><span>CI/CD</span><span>Code review</span><span>Testing</span><span>Postman</span><span>App Store / Google Play</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="mono" style="color:#8C919C">04 — <span data-vi>Liên hệ</span><span data-en>Contact</span></p>
+    <h2 style="margin-top:14px"><span data-vi>Cần một Senior Mobile Developer?<br>Hãy trò chuyện.</span><span data-en>Need a Senior Mobile Developer?<br>Let's talk.</span></h2>
+    <div class="row">
+      <a class="btn primary" href="mailto:aetq13@gmail.com">aetq13@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/tiennguyen-dev" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/chichchoe" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <small>© 2026 Nguyễn Văn Tiến · Hà Nội, Việt Nam</small>
+  </div>
+</footer>
+
+<script>
+  const setLang = l => {
+    document.body.classList.toggle('en', l === 'en');
+    document.documentElement.lang = l;
+    document.getElementById('vi').classList.toggle('on', l === 'vi');
+    document.getElementById('en').classList.toggle('on', l === 'en');
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  };
+  document.getElementById('vi').onclick = () => setLang('vi');
+  document.getElementById('en').onclick = () => setLang('en');
+  try { if (localStorage.getItem('lang') === 'en') setLang('en'); } catch (e) {}
+</script>
+</body>
+</html>
